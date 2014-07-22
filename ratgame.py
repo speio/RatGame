@@ -1,7 +1,4 @@
-import time
-import helpers
-import dead
-import webbrowser
+import time, helpers, dead, webbrowser, lock
 
 #The game of the Rat
 print "     The \n Game of the \n     Rat"
@@ -301,10 +298,17 @@ elif direction == 'left':
 	print "You scurry into a bucket of bacon juice"
 	if food == 'peanut':
 		print "You get back on your paws and take off with the speed of a rat that just ate oreros"
-		
+		helpers.repeat("*scurry*", 5, 0.33)
+				
 		print "But there's little hope, the beast is gaining on you"
-		helpers.repeat("*scurry*", 5, 0.4)
-		print "You'll have to hide"
+		print "You reach the ratdoor that leads outside"
+		print "But you remember the landlord installed a new lock."
+		print "1) Try the password \n 2) Call the landlord 3) Face the beast"
+		door_decision = raw_input("What should you do?\n > ")
+		 
+		if door_decision == 1:
+			lock.unlock_lock(food)
+			
 		#enter hiding function
 	else:
 		time.sleep(1.5)
