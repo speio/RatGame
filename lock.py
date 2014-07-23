@@ -91,26 +91,22 @@ def unlock_lock(food):
 			print "It's the only password a rat would ever remember"
 		elif attempt == 'HELP' or attempt == 'help' and round != 1:	
 			print "The longest word in the english language is ostensibly opposite"
-			print "but infinitely dissimilar to the entry command."
-		
+			print "Boop"
+			time.sleep(1)
+			print "Nope"
+			time.sleep(2)
 		else:
-			if round == 1:
-				print "Boop"
+			delay = 5*(start_repeat - repeats)*len(attempt.split())	
+			
+			for i in xrange(delay):
+				spacing = randint(1,terminal_size[0])
 				time.sleep(1)
-				print "Nope"
-				time.sleep(2)
-			else:
-				delay = 5*(start_repeat - repeats)*len(attempt.split())	
-				
-				for i in xrange(delay):
-					spacing = randint(1,terminal_size[0])
-					time.sleep(1)
-					boop = ' '*spacing + 'boop' 
-					print boop
-				
-					if i == delay:
-						print "Nope"
-						
+				boop = ' '*spacing + 'boop' 
+				print boop
+			
+				if i == delay:
+					print "Nope"
+					
 			round = round + 1	
 			repeats = repeats - 1
 		
@@ -127,5 +123,3 @@ def unlock_lock(food):
 		
 	return(output)
 	
-food = raw_input("input food variable to pass to function: ")
-unlock_lock(food)
