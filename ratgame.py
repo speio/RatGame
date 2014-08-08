@@ -1,4 +1,4 @@
-import time, helpers, dead, webbrowser, lock
+import time, helpers, dead, webbrowser, lock, release_rats
 
 #The game of the Rat
 print "     The \n Game of the \n     Rat"
@@ -108,7 +108,7 @@ while rat == "Ratzo":
 
 	elif package_ans == "n":
 		print "Fine"
-		time.sleep(0.7)
+		time.sleep(1.7)
 		print "jerk."
 		print "The mysterious voice traveles off mumbling curses at you"
 		time.sleep(1)
@@ -135,7 +135,7 @@ while True:
 	if item == "yes":
 		print "Package in hand, you look around the dark room for what to do next."
 		print "You deliberate a bit on what to do with the package, what could it be?"
-		#.sleep(1)
+		time.sleep(2)
 		print "You wonder if you should even open it..."
 		open_package = raw_input("Open? (y/n)> ")
 	
@@ -156,11 +156,11 @@ while True:
 
 	elif item == "no":
 		print "You got no package and no cares, you're basically a free spirit."
-		time.sleep(1)
+		time.sleep(1.9)
 		print "No package weighing you down."
-		time.sleep(0.7)
+		time.sleep(1.7)
 		print "No sweet ass items"
-		time.sleep(0.5)
+		time.sleep(1.5)
 		print "No clue what the hell you're doing or who has been talking to you."
 		print ""
 		food = 'neither'
@@ -276,7 +276,7 @@ if direction == 'right':
 	
 	if food == 'peanut':
 		print "Wow you are fast, good thing you had those nutritious oreos."
-		time.sleep(1)
+		time.sleep(2)
 		print "You rush towards the small ratdoor that you use every day to get to work"
 		print "But oh no...you remember that your landlord installed a new lock..."
 		time.sleep(2)
@@ -287,9 +287,10 @@ if direction == 'right':
 		else:
 			print "You got the door open!"
 			print "You scurry to work cus you late."
-			print "The End"
-			helpers.repeat('*scurry scurry*',1000,0.5)
-
+			print "The End!"
+			print "**Releasing Rats**"
+			#release_rats.release()
+			
 			
 	
 	elif food == 'both' or food == 'neither':
@@ -313,13 +314,30 @@ elif direction == 'left':
 		helpers.repeat("*scurry*", 5, 0.33)
 				
 		print "But there's little hope, the beast is gaining on you"
+		time.sleep(2)
 		print "You reach the ratdoor that leads outside"
+		time.sleep(2)
 		print "But you remember the landlord installed a new lock."
+		time.sleep(1.5)
 		print "1) Try the password \n 2) Call the landlord 3) Face the beast"
 		door_decision = raw_input("What should you do?\n > ")
 		 
 		if door_decision == 1:
-			lock.unlock_lock(food)
+			result = lock.unlock_lock(food)
+			
+			if result == 'bella1':
+				dead.dead(result)
+			else:
+				
+				print "You got the door open!"
+				print "You scurry to work cus you late."
+				print "The End!"
+				print "**Releasing Rats**"
+				time.sleep(2)
+				#release_rats.release()
+			
+			
+			
 			
 		#enter hiding function
 	else:
