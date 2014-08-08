@@ -63,8 +63,7 @@ def unlock_lock(food):
 	else:
 		repeats = 5
 	
-	start_repeat = repeats
-	terminal_size = getTerminalSize()			
+	start_repeat = repeats			
 	round = 1
 	output = 'bella 1'
 	while repeats != 0:
@@ -93,13 +92,11 @@ def unlock_lock(food):
 			print "It's the only password a rat would ever remember"
 		elif attempt == 'HELP' or attempt == 'help' and round != 1:	
 			print "The longest word in the english language is ostensibly opposite"
-			print "Boop"
-			time.sleep(1)
-			print "Nope"
 			time.sleep(2)
 		else:
+			#delay = 5*(start_repeat - repeats)*len(attempt.split())	
 			delay = 5*(start_repeat - repeats)*len(attempt.split())	
-			
+			terminal_size = getTerminalSize()
 			for i in range(delay):
 				spacing = randint(1,terminal_size[0])
 				time.sleep(1)
@@ -113,6 +110,7 @@ def unlock_lock(food):
 			repeats = repeats - 1
 		
 		if repeats <= 2:
+			exit(0)
 			helpers.stall(food)
 			#need to write function in helpers that will serve for a stalling bella 
 			#game that offers feeding with food obtained from package, or calling landlord
