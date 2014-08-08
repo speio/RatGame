@@ -64,6 +64,7 @@ def dead(reason):
 		
 		
 		"""
+		exit(0)
 	elif reason == 'bella 3':
 		print "It's a dog not a T-Rex."
 		print "She go'n eat you up"
@@ -93,7 +94,37 @@ def dead(reason):
            
 """
 		exit(0)
+
+	elif reason == 'bella 1':
+		print "You took too long and got eated"
+		time.sleep(1.5)
+		print """
+              ,-~~~~-,
+        .-~~~;        ;~~~-.
+       /    /   \  /  \\    \\
+      {   .'{  O    O  }'.   }
+       `~`  { .-~~~~-. }  `~`
+            ;/        \\;
+           /'._  ()  _.'\\
+          /    `vvvv     \\
+         ;      ^^^^      ;
+         {                }
+         {     }    {     }
+         {     }    {     }
+         /     \\    /     \\
+        { { {   }~~{   } } }
+         `~~~~~`    `~~~~~`
+             (\~---.
+             /   (\\-`-/)
+            (      X x )
+             \\ (  \_*_/
+              w \_   //
+                  W  W 
+           
+"""
+		exit(0)
 	
+
 	elif reason == 'bacon':
 		
 		print "You're eaten in the most vehement manner possible"

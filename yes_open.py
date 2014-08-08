@@ -1019,6 +1019,6 @@ def yes_open():
 				
 			print "Close enough!"
 			#.sleep(0.7)
-			print "Peanut Butter AND Oreos in the box, yo \n don't let that go to waste!"
+			print "Peanut Butter ANDz Oreos in the box, yo \n don't let that go to waste!"
 		
 		

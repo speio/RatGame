@@ -1,4 +1,4 @@
-import time
+import time, webbrowser
 
 def yes_open():
 	print "*nibble nibble tear tear*"
@@ -729,12 +729,32 @@ To buy airline tickets.
 \"
 """	
 	time.sleep(2.5)
+	
+	while True:
+		print "Buy airline tickets? \n (y/n)"
+		response = raw_input(" >")
+		
+		if response == 'y':
+			url = "https://www.google.de/flights/#search;f=RAT;t=;"
+			webbrowser.open_new(url)
+			break
+		elif response == 'n':
+			print "You don't understand poetry."
+			time.sleep(1)
+			print  "-10 xp"
+			time.sleep(1)
+			break
+		else:
+			print "This is serious"
+			time.sleep(1)
+			
+		
 	print "It's a real tear jerker I know,"
 	
 	print "So if you'd still like to eat it I won't stop you."
 	decide = raw_input("Eat the box? (y/n) \n > ")
 	while True:
-		if decide == 'y':
+		if decide == '1':
 			return "dead box"
 		elif decide == 'n':
 			print "Well, I know it's hard but that's probably the right choice"
@@ -745,10 +765,12 @@ To buy airline tickets.
 #decides what to do with the contents of the box, returns a variable "output" which has
 #the function to call in the main script(dead or bella), and the result of the decision made about
 #the contents of the box or the reason for death
-def eating(input, round):
+def eating(eat, filtered_eat):
 	decision = "none"
-	round = round #not using this
-	response = input
+	#response as filtred and interpreted by intersect_check function
+	response = filtered_eat
+	#raw response from user input
+	raw = eat
 	while decision != "continue":
 			
 		#eating the peanut butter
@@ -790,14 +812,16 @@ def eating(input, round):
 			print "..."
 			time.sleep(1)
 			print "Don't be a dick"
-			round = 2
-
+			decision = "continue"
+			output = ('','','')	
+				
 		#unspecific
 		elif response == 'unspecific':
-			print "\" %s \" " % input
+			print "\" %s \" ???" % raw
 			print "Eat what? The box? \n Don't be so unspecific."
-			round = 2
-	
+			decision = 'continue'
+			output = ('','','')
+				
 		elif response == 'neither':
 			print "I guess you're not eating either? \n what a shame."
 			while save != 'y' or save != 'n':
@@ -809,16 +833,18 @@ def eating(input, round):
 					time.sleep(2)
 					print "That damn candle!" 
 					time.sleep(1)
+					decision = 'continue'
 					output = ("dead", "fire", "continue")
 				else:
 					print "Yeah, \n \"%s \" doesn't work here" % save
-					save = ''
 	
 		elif response == 'bad input':
 			print "Not sure what you were trying to say, give it another go"
+			decision = 'continue'
 			output = ('','','')
 		
 		else:
 			print "Else reached inside eating function, meaning intersect_check() returned nonsense"
 			exit(1)
-	return(output)
+	return output
+

@@ -1,6 +1,4 @@
-import time
-import helpers_helpers
-import dead
+import time, webbrowser, helpers_helpers, dead
 #At point in game where user deciding whether or not to eat contents of box which they
 #found out contains peanut butter and oreos.
 #want to know if they want to eat peanut butter or oreos, not eat any
@@ -217,17 +215,19 @@ def repeat(f, n, sleep):
 		x = x + 1
 
 ##Tangents possible after having the package##	
-def openpackage(yesno): ##Automatically enters the YES open package if no input%%%%%%%%
+def openpackage(yesno): 
 
 	if yesno == "no":
 		
 		while True: 
-			second_yesno = raw_input("Should you hold on to the package still? \n (y/n) > ")
+			second_yesno = raw_input("Should you keep the package still? \n (y/n) > ")
 			
 			if second_yesno == 'y':
 				print "Okay, sounds good"
 				time.sleep(1)
-				print "Maybe you can hurl it at a monster or something and run for your life, Ha!"
+				print "Maybe you can hurl it at a monster or something and run for your life."
+				time.sleep(1)
+				print "Ha!"
 				break
 			
 			elif second_yesno == 'n':
@@ -246,7 +246,7 @@ def openpackage(yesno): ##Automatically enters the YES open package if no input%
 	
 
 	elif yesno == "yes":
-		#from helpers_helpers import yes_open
+		
 		#This just comes back here without setting any variables after making them guess
 		#what is in the box, there are no tangents or deaths from this function
 		helpers_helpers.yes_open()
@@ -254,18 +254,44 @@ def openpackage(yesno): ##Automatically enters the YES open package if no input%
 		result = ("default","default", "default")
 		round = 1
 		while result[2]!= 'continue':
-			print "What should you do with the delicious peanut butter and scrumptious oreos?"
-			eat = raw_input("> ")
-			eat = intersect_check(input)
-			result = eating(eat)
-			
+			if result[1] == 'default':
+				print "What should you do with the delicious peanut butter and scrumptious oreos?"
+				eat = raw_input("> ")
+				filtered_eat = intersect_check(eat)
+				result = helpers_helpers.eating(eat, filtered_eat)
+			else:
+				print "So what's the plan for the peanut butter and oreos?"
+				eat = raw_input("> ")
+				filtered_eat = intersect_check(eat)
+				result = helpers_helpers.eating(eat, filtered_eat)
+							
 		if result[0] == "dead":
 			dead.dead(result[1])
+		
 		else:
-			return(result)	
-		
-		
-		#deciphering input on what to "do" with the food items 
-		#from helpers import yes_open
+			return result[1]
 
 
+
+#Offers the various option for stalling beast using items at hand or other
+def stalling(food):
+	print "You ponder frantically how you could slow that beast."
+	print "You come up with some obvious solution."
+	
+	print "1) Dial a friend for help."
+	print "2) Toss the beast a treat to quell its hungry tummy."
+	print "3) Throw your voice to distract her."
+	
+	choice = raw_input("Which do you choose? \n > ")
+	
+	while True:	
+		if choice == 1:
+			helpers_helpers.callfriend()
+		elif choice == 2:
+			helpers_helpers.tosstreat()
+		elif choice == 3:
+			helpers_helpers.throwvoice()
+	
+		else:
+			print "Select a number 1, 2, or 3"	
+		

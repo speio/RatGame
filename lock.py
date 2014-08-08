@@ -56,7 +56,9 @@ def unlock_lock(food):
 
 
 
-	if food == 'oreos':
+	if food == 'peanut':
+		print "You run fast, and are pretty far ahead of the beast"
+		print "That should give you enough time to remember the passowrd"
 		repeats = 10
 	else:
 		repeats = 5
@@ -64,7 +66,7 @@ def unlock_lock(food):
 	start_repeat = repeats
 	terminal_size = getTerminalSize()			
 	round = 1
-	
+	output = 'bella 1'
 	while repeats != 0:
 		
 		
@@ -76,7 +78,7 @@ def unlock_lock(food):
 				
 		attempt = raw_input("> ")
 				
-		key_unlock = 'password'
+		key_unlock = ''
 		password = key_unlock*0
 		legitimate_password = password
 		official_password = legitimate_password
@@ -105,14 +107,14 @@ def unlock_lock(food):
 				print boop
 			
 				if i == delay:
-					print "Nope"
+					print "WRONG"
 					
 			round = round + 1	
 			repeats = repeats - 1
 		
 		if repeats <= 2:
 			helpers.stall(food)
-			#need tp write function in helpers that will serve for a stalling bella 
+			#need to write function in helpers that will serve for a stalling bella 
 			#game that offers feeding with food obtained from package, or calling landlord
 			# or calling out her name. Options could be "Feed..." "Call landlord" "Throw voice"
 			#requiring that player knows the landlords number, has the peanut butter, or knows 'bella'

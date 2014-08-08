@@ -110,7 +110,7 @@ while rat == "Ratzo":
 		print "Fine"
 		time.sleep(0.7)
 		print "jerk."
-		print "The mysterious voice traveles off mumbling cursing at you"
+		print "The mysterious voice traveles off mumbling curses at you"
 		time.sleep(1)
 		item = "no"
 		break
@@ -126,7 +126,6 @@ while rat == "Ratzo":
 
 
 ##BEDROOM##
-#room where main story happens
 
 print "You get up and step into the dark bedroom."
 print ""
@@ -142,9 +141,13 @@ while True:
 	
 		if open_package == "n":
 			op_result = helpers.openpackage("no")
+			food = op_result
+			break
 	
 		elif open_package == "y":
 			op_result = helpers.openpackage("yes")
+			food = op_result
+			break
 		
 	
 		else:
@@ -174,7 +177,6 @@ while True:
 if food == "peanut":
 	print "Belly full of Oreos"
 	print "Pocket full of Peanut Butter"
-	item = "peanut butter"
 	
 	time.sleep(2)
 	
@@ -182,7 +184,7 @@ elif food == "both":
 	print "With a box full of oreos and peanut butter."
 	time.sleep(2)
 elif food == "neither":
-	print "Claws containing crap, fur full of fuzzy, snout soaked with snot."	
+	print "Claws clumped with crap, fur full of fuzz, snout soaked with snot."	
 	print ""
 	time.sleep(2)
 else:
@@ -191,7 +193,7 @@ else:
 	bella("both")
 
 time.sleep(2)	
-print "You step forth through the dark of your bedroom towards a rat doorway, lit from outside"
+print "You step forth through the dark of the bedroom towards a rat doorway, lit from outside"
 time.sleep(1.5)
 print """
        _---_
@@ -208,7 +210,7 @@ print """
  |______________|
  
 """
-print "You step through it, haze turns to colour as your eyes adjust to the bright light."
+print "You step through it, a white haze turns to colours as your eyes adjust to the bright light."
 time.sleep(2)
 print "Suddenly a BEAST!"
 time.sleep(0.5)
@@ -245,8 +247,8 @@ time.sleep(1)
 
 while True:	
 	print ""
-	print "1) Run to the right"
-	print "2) Run to the left"
+	print "1) Run to the right, 'right turn on red' are words you always lived by."
+	print "2) Run to the left, always a good default."
 	print "3) Stand still, if you don't move she won't see you."
 	
 	#print "error check: variable 'food'= %s" % food
@@ -273,12 +275,22 @@ if direction == 'right':
 	helpers.repeat('*scurry scurry*',4,0.5)
 	
 	if food == 'peanut':
-		print "Wow you are fast, good thing you had those nutritious oreos!"
+		print "Wow you are fast, good thing you had those nutritious oreos."
 		time.sleep(1)
 		print "You rush towards the small ratdoor that you use every day to get to work"
-		print "But oh no...you remember that your landlord installed a new lock"
+		print "But oh no...you remember that your landlord installed a new lock..."
+		time.sleep(2)
 		
-		
+		result = lock.unlock_lock(food)
+		if result == 'bella 1':
+			dead.dead(result)
+		else:
+			print "You got the door open!"
+			print "You scurry to work cus you late."
+			print "The End"
+			helpers.repeat('*scurry scurry*',1000,0.5)
+
+			
 	
 	elif food == 'both' or food == 'neither':
 		print "You're femished"
