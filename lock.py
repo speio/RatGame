@@ -100,7 +100,7 @@ def unlock_lock(food):
 		else:
 			delay = 5*(start_repeat - repeats)*len(attempt.split())	
 			
-			for i in xrange(delay):
+			for i in range(delay):
 				spacing = randint(1,terminal_size[0])
 				time.sleep(1)
 				boop = ' '*spacing + 'boop' 
