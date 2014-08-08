@@ -289,7 +289,7 @@ if direction == 'right':
 			print "You scurry to work cus you late."
 			print "The End!"
 			print "**Releasing Rats**"
-			#release_rats.release()
+			release_rats.release()
 			
 			
 	
@@ -322,7 +322,7 @@ elif direction == 'left':
 		print "1) Try the password \n 2) Call the landlord 3) Face the beast"
 		door_decision = raw_input("What should you do?\n > ")
 		 
-		if door_decision == 1:
+		if door_decision == '1':
 			result = lock.unlock_lock(food)
 			
 			if result == 'bella1':
@@ -334,10 +334,15 @@ elif direction == 'left':
 				print "The End!"
 				print "**Releasing Rats**"
 				time.sleep(2)
-				#release_rats.release()
+				release_rats.release()
 			
+		elif door_decision == '2':
+			print "no"
+		elif door_decision == '3':
+			dead.dead('bella1')
 			
-			
+		else:
+			dead.daed('bella3')
 			
 		#enter hiding function
 	else:
