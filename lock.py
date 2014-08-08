@@ -95,7 +95,7 @@ def unlock_lock(food):
 			time.sleep(2)
 		else:
 			#delay = 5*(start_repeat - repeats)*len(attempt.split())	
-			delay = 5*(start_repeat - repeats)*len(attempt.split())	
+			delay = 5*(len(attempt.split())	
 			terminal_size = getTerminalSize()
 			for i in range(delay):
 				spacing = randint(1,terminal_size[0])
