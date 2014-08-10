@@ -159,13 +159,13 @@ def intersect_check(input):
 ##Landlord
 def landlord():	
 	print "\"I'm pretty sure I said (y/n) meaning choose \"yes\" \"no\" by typing y or n \""
-	#.sleep(2)
+	time.sleep(2)
 	print "..."
-	#.sleep(0.5)
+	time.sleep(0.5)
 	print "\"but now we are here, so I'll tell you about myself.\""
-	#.sleep(0.8)
+	time.sleep(0.8)
 	print "\"but first tell me this\""
-	#.sleep(0.9)
+	time.sleep(0.9)
 	
 	#beginning riddel  
 	answer = "none"
@@ -224,19 +224,19 @@ def openpackage(yesno):
 			
 			if second_yesno == 'y':
 				print "Okay, sounds good"
-				time.sleep(1)
+				time.sleep(1.5)
 				print "Maybe you can hurl it at a monster or something and run for your life."
-				time.sleep(1)
+				time.sleep(3)
 				print "Ha!"
 				break
 			
 			elif second_yesno == 'n':
 				print "You throw the package back onto the bed."
-				#.sleep(2)
+				time.sleep(3)
 				print "HOLY SHIT"
-				#.sleep(2)
+				time.sleep(3)
 				print "YOU KNOCKED OVER THE CANDLE"
-				#.sleep(1)
+				time.sleep(2)
 				dead.dead("fire")
 			else:
 				print "%s \n wuz diz mean?" % second_yesno	
@@ -276,21 +276,25 @@ def openpackage(yesno):
 #Offers the various option for stalling beast using items at hand or other
 def stalling(food):
 	print "You ponder frantically how you could slow that beast."
-	print "You come up with some obvious solution."
-	
+	print "You come up with some obvious solutions."
+	print ""
+	print ""
+	time.sleep(4)
 	print "1) Dial a friend for help."
 	print "2) Toss the beast a treat to quell its hungry tummy."
 	print "3) Throw your voice to distract her."
+	time.sleep(3)
 	
-	choice = raw_input("Which do you choose? \n > ")
 	
 	while True:	
-		if choice == 1:
-			helpers_helpers.callfriend()
-		elif choice == 2:
-			helpers_helpers.tosstreat()
-		elif choice == 3:
-			helpers_helpers.throwvoice()
+		choice = raw_input("Which do you choose? \n > ")
+	
+		if choice == '1':
+			helpers_helpers.callfriend(food)
+		elif choice == '2':
+			helpers_helpers.tosstreat(food)
+		elif choice == '3':
+			helpers_helpers.throwvoice(food)
 	
 		else:
 			print "Select a number 1, 2, or 3"	
