@@ -142,5 +142,13 @@ def dead(reason):
 		
 		"""
 		exit(0)
+	elif reason == 'suicide':
+		print "You blow your brains out with a pistol."
+		time.sleep(5)
+		print "...cus you always packin heat!"
+		time.sleep(2)
+		print "Probably could have used that on the beast."
+		time.sleep(3)
+		print open('suicide_rat.txt', 'r').read()
 	else:
 		exit(0)
