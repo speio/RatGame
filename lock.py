@@ -76,7 +76,7 @@ def unlock_lock(food):
 		print "Input password, type HELP for hint, or type EXIT to quit.\n "
 				
 		attempt = raw_input("> ")
-				
+		
 		key_unlock = ''
 		password = key_unlock*0
 		legitimate_password = password
@@ -90,36 +90,40 @@ def unlock_lock(food):
 			break
 		elif attempt == 'HELP' or attempt == 'help' and round == 1:
 			print "It's the only password a rat would ever remember"
-		elif attempt == 'HELP' or attempt == 'help' and round != 1:	
+		elif attempt == 'HELP' or attempt == 'help' and round == 2:	
 			print "The longest word in the english language is ostensibly opposite"
+			time.sleep(2)
+		elif attempt == 'HELP' or attempt == 'help' and round in range(10):	
+			print("""Rats are bad at typing, so typing anythign twice in a row
+			was really hard. Shouldn't be surprised by the password.""")
 			time.sleep(2)
 		else:
 			#delay = 5*(start_repeat - repeats)*len(attempt.split())	
-			delay = 5*(len(attempt.split())	
+			delay = 2*len(attempt)	
 			terminal_size = getTerminalSize()
 			for i in range(delay):
 				spacing = randint(1,terminal_size[0])
 				time.sleep(1)
 				boop = ' '*spacing + 'boop' 
 				print boop
-			
-				if i == delay:
-					print "WRONG"
-					
+			time.sleep(1)		
 			round = round + 1	
 			repeats = repeats - 1
 		
 		if repeats <= 2:
-			exit(0)
-			helpers.stall(food)
 			#need to write function in helpers that will serve for a stalling bella 
 			#game that offers feeding with food obtained from package, or calling landlord
 			# or calling out her name. Options could be "Feed..." "Call landlord" "Throw voice"
 			#requiring that player knows the landlords number, has the peanut butter, or knows 'bella'
 			
 			print "The beast is nearing"
+			time.sleep(1.5)
 			print "You need  to think of a way to stall her."
-			print "What should you do?"		
+			time.sleep(1.5)
+			print "What should you do?"	
+			time.sleep(2)	
+			helpers.stalling(food)
 		
 	return(output)
 	
+unlock_lock('peanuts')
