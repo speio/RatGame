@@ -1,10 +1,10 @@
 import time, helpers, dead, webbrowser, lock, release_rats
-
+start = time.time()
 #The game of the Rat
 print "     The \n Game of the \n     Rat"
 raw_input("Press enter to continue")
 print "Choose your character:"
-#.sleep(1)
+time.sleep(1)
 
 
 
@@ -20,7 +20,7 @@ print "	     			 '''------'---''---'-\""
 
 
 
-#.sleep(.7)
+time.sleep(.7)
 print "Sir. Ratsalot"
 
 print "	             (\,/)"
@@ -31,7 +31,7 @@ print "                         ',|  \    |__.'"
 print "                         '~  '~----''"
 
 
-#.sleep(.7)
+time.sleep(.7)
 print "Ratzo"
 
 print "                .---."
@@ -61,7 +61,7 @@ print "Let's begin our adventure!"
 print "You awake in a small ratbed with a candle precariously burning beside the bed."
 print "The rest of the room is dark besides the sphere of light around you from the candle."
 print "You probably fell asleep reading"
-time.sleep(1.5)
+time.sleep(5.5)
 print "Thank god you didn't burn the rathouse down."
 
 rat = "Ratzo"
@@ -82,7 +82,7 @@ while character == "Elfred Ratskill":
 while rat == "Ratzo":
 	if round == 1:
 		print "...and suddenly a voice"
-		time.sleep(1)
+		time.sleep(2)
 		print "\"Hi Ratzo...You recieved a package while you were out."
 		print "Would you like the package now?\""
 	elif round == 2:
@@ -98,20 +98,20 @@ while rat == "Ratzo":
 	
 	if package_ans == "y":
 		print "A package slides out of the darkness towards your bed"
-		#.sleep(1)
-		print "Here you go %s" % character 
+		time.sleep(2)
+		print "'Here you go %s'" % character 
 		print ""
 		item = "yes"
-		time.sleep(1)
+		time.sleep(2)
 		break
 		
 
 	elif package_ans == "n":
 		print "Fine"
-		time.sleep(1.7)
+		time.sleep(2.7)
 		print "jerk."
 		print "The mysterious voice traveles off mumbling curses at you"
-		time.sleep(1)
+		time.sleep(3)
 		item = "no"
 		break
 	
@@ -135,7 +135,7 @@ while True:
 	if item == "yes":
 		print "Package in hand, you look around the dark room for what to do next."
 		print "You deliberate a bit on what to do with the package, what could it be?"
-		time.sleep(2)
+		time.sleep(5)
 		print "You wonder if you should even open it..."
 		open_package = raw_input("Open? (y/n)> ")
 	
@@ -187,14 +187,14 @@ elif food == "neither":
 	print "Claws clumped with crap, fur full of fuzz, snout soaked with snot."	
 	print ""
 	time.sleep(2)
+elif 
 else:
-	print "bella else reached"
-	print "entering bella function again with 'both' argument"
-	bella("both")
+	print " else reached"
 
-time.sleep(2)	
+
+time.sleep(3)	
 print "You step forth through the dark of the bedroom towards a rat doorway, lit from outside"
-time.sleep(1.5)
+time.sleep(2.5)
 print """
        _---_
    .-"``   ``"-.
@@ -211,7 +211,7 @@ print """
  
 """
 print "You step through it, a white haze turns to colours as your eyes adjust to the bright light."
-time.sleep(2)
+time.sleep(4)
 print "Suddenly a BEAST!"
 time.sleep(0.5)
 print """
@@ -276,10 +276,10 @@ if direction == 'right':
 	
 	if food == 'peanut':
 		print "Wow you are fast, good thing you had those nutritious oreos."
-		time.sleep(2)
+		time.sleep(3)
 		print "You rush towards the small ratdoor that you use every day to get to work"
 		print "But oh no...you remember that your landlord installed a new lock..."
-		time.sleep(2)
+		time.sleep(5)
 		
 		result = lock.unlock_lock(food)
 		if result == 'bella 1':
@@ -289,7 +289,9 @@ if direction == 'right':
 			print "You scurry to work cus you late."
 			print "The End!"
 			print "**Releasing Rats**"
-			release_rats.release()
+			end = time.time()
+			rats = round((end - start)/60)
+			release_rats.release(rats)
 			
 			
 	
@@ -334,7 +336,9 @@ elif direction == 'left':
 				print "The End!"
 				print "**Releasing Rats**"
 				time.sleep(2)
-				release_rats.release()
+				end = time.time()
+				rats = round((end - start)/60)
+				release_rats.release(rats)
 			
 		elif door_decision == '2':
 			print "no"
