@@ -1,4 +1,4 @@
-import time, webbrowser
+import time, webbrowser, dead
 
 def yes_open():
 	print "*nibble nibble tear tear*"
@@ -848,3 +848,56 @@ def eating(eat, filtered_eat):
 			exit(1)
 	return output
 
+#function reached at end of game used to stall the beast
+def callfriend(food):
+	print("You decide to call a friend")
+	time.sleep(2.5)
+	print("You try and remember if you have frineds, you are pretty sure you don't")
+	print("But you remember your landlord...")
+	time.sleep(4.5)
+	print("Deciding to carry on anyways you whip out an old Track Phone for a call")
+	time.sleep(4)
+	
+	while True:
+		number = raw_input("Which number would you like to dial? \n > ")
+		
+		if number == '911' or number == '411':
+			print("dialing...")
+			time.sleep(2)
+			print("9") 
+			time.sleep(0.8)
+			print("1")
+			time.sleep(0.8)
+			print("1")
+			time.sleep(4)
+			print "..."
+			time.sleep(4)
+			print "'%s emergency how can I help you?'" %number
+			time.sleep(3)
+			print "'%s emergency, are you okay?'" %number
+			time.sleep(4)
+			print "'Hello?'"
+			time.sleep(2.5)
+			print "'Is anyone there?'"
+			time.sleep(2)
+			print "'This line is for energencies not pranks.'"
+			time.sleep(3.5)
+			print "The dial tone sounds as the operator on the other line hangs up"
+			time.sleep(3)
+			print "The crushing realisation hits you..."
+			time.sleep(4.5)
+			print "'I'm just...'"
+			time.sleep(5)
+			print "'I'm just a rat.'" 
+			time.sleep(5)
+			print "'I don't know any human words.'"
+			time.sleep(5)
+			print "..."
+			time.sleep(3)
+			print "'I don't belong in this world'"
+			time.sleep(6)
+			dead.dead('suicide')
+			
+				
+	
+	
